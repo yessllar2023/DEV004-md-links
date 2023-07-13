@@ -1,35 +1,40 @@
-//function
 import fs from "fs";
-import path, { resolve } from 'path'
-export const mdLinks = (doc, options) => {
-  // console.log(doc, options);
+import path, { resolve } from "path";
 
+export const comprobarRutas = (doc) => {
   return new Promise((resolve, reject) => {
     //identificar si la ruta existe
     if (fs.existsSync(doc)) {
-    //   console.log("El archivo EXISTE!", );
-    // es absoluta???
-      const docAbsolute = path.resolve(doc)
+      // console.log("El archivo EXISTE!", );
+      // es absoluta???
+      const docAbsoluto = path.resolve(doc);
+      // console.log(docAbsolute)
       // es md???
-      if(path.extname(doc)=== '.md'){
-        //resolve(docAbsolute)
-     
-        // comentar resolve L16
-        // investigar como se lee el contenido de un achivo en node.js
+      if (path.extname(docAbsoluto) === ".md") {
+        return docAbsoluto;
         // para leer el contendio usar docAbsolute
-      }else{
-        reject('Invalido')
+      } else {
+        console.log("no se encontraron archivos md");
       }
-      
-      
     } else {
-    //   console.log("El archivo NO EXISTE!");
-      reject('Invalido El archivo NO EXISTE!')
-
+      console.log("El archivo NO EXISTE!");
+      // reject('Invalido El archivo NO EXISTE!')
     }
   });
 };
 
-// modules.exports = () => {
+export const encontrarLinks = (doc) => {};
 
+export const comprobarLinks = (doc) => {
+  //aqui se llamaran
+};
+
+export const mdLinks = (doc) => {
+  return new Promise((resolve, reject) => {
+    comprobarRutas(doc).then((archivo) => {
+      console.log(archivo);
+    });
+  });
+};
+// modules.exports = () => {
 // }
