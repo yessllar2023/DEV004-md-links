@@ -5,14 +5,14 @@ export const comprobarRutas = (doc) => {
   return new Promise((resolve, reject) => {
     //identificar si la ruta existe
     if (fs.existsSync(doc)) {
-      // console.log("El archivo EXISTE!", );
+      // console.log("El archivo EXISTE!");
       // es absoluta???
       const docAbsoluto = path.resolve(doc);
       // console.log(docAbsolute)
       // es md???
       if (path.extname(docAbsoluto) === ".md") {
-        return docAbsoluto;
-        // para leer el contendio usar docAbsolute
+        resolve(docAbsoluto);
+        // para leer el contenido usar docAbsolute
       } else {
         console.log("no se encontraron archivos md");
       }
@@ -31,10 +31,15 @@ export const comprobarLinks = (doc) => {
 
 export const mdLinks = (doc) => {
   return new Promise((resolve, reject) => {
-    comprobarRutas(doc).then((archivo) => {
-      console.log(archivo);
-    });
+    comprobarRutas(doc)
+      .then((archivo) => {
+        console.log(archivo);
+      })
+      .catch((error) =>
+        reject(console.log("no se pudo llevar a cabo este proceso"))
+      );
   });
 };
 // modules.exports = () => {
+
 // }
