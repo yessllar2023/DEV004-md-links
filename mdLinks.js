@@ -23,20 +23,31 @@ export const comprobarRutas = (doc) => {
   }
   });
 };
-
-//aqui array con objetos
+//aqui array con objetos?
 //los links son extraidos a un objeto y se almacena el objeto en un arreglo.
-//¿como extraerlos?
-//export const encontrarLinks = (archivo) => {
-//};
+// leer el archivo solo es un complemento de encontrar links.
+// Para encontrar los links es necesario primero leer el archivo, y mientras lo estas leyendo vas buscando los links.
+// en la función de comprobar links  le pides que lea el archivo, y dentro de esa acción (o sea los parentesis) le dices que busque los links, 
+//ya sea con marked o con un regex o con cualquiera de las opciones que prefieras.
+//¿como extraerlos? leemos el archivo con readflie asincrono, ques es readfile sin palabra sync
+//redfile es un metodo de fs
+//t-odo lo asincrono debe ir en una promesa.
+
+//"Por poner un ejemplo, el parseado (análisis) del markdown para extraer los links podría plantearse //podríamos usar una combinación de varios módulos (podría ser válido transformar el markdown a HTML usando 
+ // algo como marked y de ahí extraer los link con una librería de DOM como JSDOM o Cheerio entre otras)."
+ //usar marked solamente, fue un poco dificil porque la documentación no es tan clara, pero es mas claro que con un regex 
+
+ export const encontrarLinks = (archivo) => {
+};
+
 
 //validacion
 //¿contiene links?
 //los links (todos) estan dentro de un arreglo
 //validamos los links
-//export const comprobarLinks = (links) => {
+export const comprobarLinks = (links) => {
   //aqui se llamaran
-//};
+};
 
 export const mdLinks = (doc) => {
   return new Promise((resolve, reject) => {
